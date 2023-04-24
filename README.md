@@ -1,0 +1,3 @@
+# dotfiles
+
+NERD Font used
