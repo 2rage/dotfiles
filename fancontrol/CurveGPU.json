@@ -1,0 +1,326 @@
+{
+  "__VERSION__": "163",
+  "Main": {
+    "Controls": [
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/0",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": {
+          "Identifier": "/lpc/nct6796dr/fan/0",
+          "IsHidden": false,
+          "Name": "Chassis #3",
+          "NickName": "Chassis #3"
+        },
+        "MinimumPercent": 0,
+        "Name": "Chassis #3",
+        "NickName": "Chassis #3",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": {
+          "IsHidden": false,
+          "MaximumTemperature": 120,
+          "MinimumTemperature": 20,
+          "Name": "Graph",
+          "OneWayHysteresis": false,
+          "Points": [
+            "20,0",
+            "80,40"
+          ],
+          "SelectedHysteresis": 2.0,
+          "SelectedResponseTime": 1,
+          "SelectedTempSource": {
+            "Identifier": "NVApiWrapper/0-GA102-A/sensor/0",
+            "IsHidden": false,
+            "Name": "GPU",
+            "NickName": "GPU"
+          }
+        },
+        "SelectedOffset": 0,
+        "SelectedStart": 33,
+        "SelectedStop": 24
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/1",
+        "IsHidden": true,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": null,
+        "MinimumPercent": 0,
+        "Name": "CPU #1",
+        "NickName": "CPU #1",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/2",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": {
+          "Identifier": "/lpc/nct6796dr/fan/2",
+          "IsHidden": false,
+          "Name": "CPU #2",
+          "NickName": "CPU #2"
+        },
+        "MinimumPercent": 0,
+        "Name": "CPU #2",
+        "NickName": "CPU #2",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 15,
+        "SelectedStop": 9
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/3",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": {
+          "Identifier": "/lpc/nct6796dr/fan/3",
+          "IsHidden": false,
+          "Name": "Chassis #1",
+          "NickName": "Chassis #1"
+        },
+        "MinimumPercent": 0,
+        "Name": "Chassis #1",
+        "NickName": "Chassis #1",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 15,
+        "SelectedStop": 9
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/4",
+        "IsHidden": true,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": null,
+        "MinimumPercent": 0,
+        "Name": "Chassis #2",
+        "NickName": "Chassis #2",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/5",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": {
+          "Identifier": "/lpc/nct6796dr/fan/5",
+          "IsHidden": false,
+          "Name": "SB Fan",
+          "NickName": "SB Fan"
+        },
+        "MinimumPercent": 0,
+        "Name": "SB Fan",
+        "NickName": "SB Fan",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 24,
+        "SelectedStop": 24
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6796dr/control/6",
+        "IsHidden": true,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": null,
+        "MinimumPercent": 0,
+        "Name": "Chassis #4",
+        "NickName": "Chassis #4",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "NVApiWrapper/0-GA102-A/control/0",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": {
+          "Identifier": "NVApiWrapper/0-GA102-A/fan/0",
+          "IsHidden": false,
+          "Name": "Fan 1 - NVIDIA GeForce RTX 3080 Ti",
+          "NickName": "Control 1 - NVIDIA GeForce RTX 3080 Ti"
+        },
+        "MinimumPercent": 0,
+        "Name": "Control 1 - NVIDIA GeForce RTX 3080 Ti",
+        "NickName": "Control 1 - NVIDIA GeForce RTX 3080 Ti",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "NVApiWrapper/0-GA102-A/control/1",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MatchingFanSensor": {
+          "Identifier": "NVApiWrapper/0-GA102-A/fan/1",
+          "IsHidden": false,
+          "Name": "Fan 2 - NVIDIA GeForce RTX 3080 Ti",
+          "NickName": "Control 2 - NVIDIA GeForce RTX 3080 Ti"
+        },
+        "MinimumPercent": 0,
+        "Name": "Control 2 - NVIDIA GeForce RTX 3080 Ti",
+        "NickName": "Control 2 - NVIDIA GeForce RTX 3080 Ti",
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      }
+    ],
+    "CustomSensors": [],
+    "FanCurves": [
+      {
+        "IsHidden": false,
+        "MaximumTemperature": 120,
+        "MinimumTemperature": 20,
+        "Name": "Graph",
+        "OneWayHysteresis": false,
+        "Points": [
+          "20,0",
+          "80,40"
+        ],
+        "SelectedHysteresis": 2.0,
+        "SelectedResponseTime": 1,
+        "SelectedTempSource": {
+          "Identifier": "NVApiWrapper/0-GA102-A/sensor/0",
+          "IsHidden": false,
+          "Name": "GPU",
+          "NickName": "GPU"
+        }
+      }
+    ],
+    "FanSensors": [
+      {
+        "Identifier": "/lpc/nct6796dr/fan/0",
+        "IsHidden": false,
+        "Name": "Chassis #3",
+        "NickName": "Chassis #3"
+      },
+      {
+        "Identifier": "/lpc/nct6796dr/fan/1",
+        "IsHidden": false,
+        "Name": "CPU #1",
+        "NickName": "CPU #1"
+      },
+      {
+        "Identifier": "/lpc/nct6796dr/fan/2",
+        "IsHidden": false,
+        "Name": "CPU #2",
+        "NickName": "CPU #2"
+      },
+      {
+        "Identifier": "/lpc/nct6796dr/fan/3",
+        "IsHidden": false,
+        "Name": "Chassis #1",
+        "NickName": "Chassis #1"
+      },
+      {
+        "Identifier": "/lpc/nct6796dr/fan/4",
+        "IsHidden": false,
+        "Name": "Chassis #2",
+        "NickName": "Chassis #2"
+      },
+      {
+        "Identifier": "/lpc/nct6796dr/fan/5",
+        "IsHidden": false,
+        "Name": "SB Fan",
+        "NickName": "SB Fan"
+      },
+      {
+        "Identifier": "/lpc/nct6796dr/fan/6",
+        "IsHidden": false,
+        "Name": "Chassis #4",
+        "NickName": "Chassis #4"
+      },
+      {
+        "Identifier": "NVApiWrapper/0-GA102-A/fan/0",
+        "IsHidden": false,
+        "Name": "Fan 1 - NVIDIA GeForce RTX 3080 Ti",
+        "NickName": "Control 1 - NVIDIA GeForce RTX 3080 Ti"
+      },
+      {
+        "Identifier": "NVApiWrapper/0-GA102-A/fan/1",
+        "IsHidden": false,
+        "Name": "Fan 2 - NVIDIA GeForce RTX 3080 Ti",
+        "NickName": "Control 2 - NVIDIA GeForce RTX 3080 Ti"
+      }
+    ],
+    "HideFanSpeedCards": false,
+    "HorizontalUIOrientation": false,
+    "PrimaryColor": "#FF607D8B",
+    "SecondaryColor": "#FFAEEA00",
+    "SelectedTheme": "Dark",
+    "ShowHiddenCards": true,
+    "SyncThemeWithWindows": true,
+    "TemperatureSensors": [],
+    "TrayIconColor": "#FFFFFFFF",
+    "TrayIcons": []
+  },
+  "Sensors": {
+    "DisabledPlugins": [],
+    "DisableStorageSensors": true,
+    "LibreHardwareMonitorSettings": {
+      "Controller": false,
+      "CPU": true,
+      "EmbeddedEC": true,
+      "GPU": true,
+      "InpOut": false,
+      "Memory": false,
+      "Motherboard": true,
+      "PSU": false,
+      "Storage": false,
+      "ZeroRPMOverride": false
+    },
+    "NvAPIWrapperSettings": {
+      "Enabled": true,
+      "ZeroRPMOverride": false
+    },
+    "SensorCount": 24
+  }
+}
