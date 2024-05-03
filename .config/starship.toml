@@ -5,21 +5,17 @@ add_newline = true
 
 # Change the default prompt format
 format = """\
-[╭──](bold cyan)$env_var\
-$all[╰─](bold cyan) $character"""
-
-# Battery settings (in progress)
-[battery]
-disabled = true
+[╭╴](238)$env_var\
+$all[╰─](238)$character"""
 
 # Change the default prompt characters
 [character]
-success_symbol = "[](bold cyan)"
-error_symbol = "[](bold red)"
+success_symbol = "[](238)"
+error_symbol = "[](238)"
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
-format = ' [$env_value](bold white) '  # removed space between distro and rest for pwsh
+format = '[$env_value](bold white)'  # removed space between distro and rest for pwsh
 variable = "STARSHIP_DISTRO"
 disabled = false
 
@@ -60,3 +56,33 @@ modified = " "
 staged = '[++\($count\)](green)'
 renamed = "襁 "
 deleted = " "
+
+[terraform]
+format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+
+[vagrant]
+format = "via [ vagrant $version]($style) "
+
+[docker_context]
+format = "via [ $context](bold blue) "
+
+[helm]
+format = "via [ $version](bold purple) "
+
+[python]
+symbol = " "
+python_binary = "python3"
+
+[nodejs]
+format = "via [ $version](bold green) "
+disabled = true
+
+[ruby]
+format = "via [ $version]($style) "
+
+[kubernetes]
+format = 'on [ $context\($namespace\)](bold purple) '
+disabled = false
+[kubernetes.context_aliases]
+"clcreative-k8s-staging" = "cl-k8s-staging"
+"clcreative-k8s-production" = "cl-k8s-prod"
