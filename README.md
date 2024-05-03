@@ -55,3 +55,4 @@ source ~/.zshrc
 ## ToDo
 
 - [ ] Добавить скрипт настройки Git
+test gnupg
