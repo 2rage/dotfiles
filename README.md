@@ -2,6 +2,10 @@
 
 ## Installation
 
+```bash
+git clone git@github.com:2rage/dotfiles.git && cd dotfiles && source bootstrap.sh
+```
+
 ### 1. Установка ZSH в Linux
 
 1. Чтобы установить zsh в Debian 11, запустите:
