@@ -1,18 +1,21 @@
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 
 
-# Init Homebrew
+# init homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# Init Starship
+# init starship
 eval "$(starship init zsh)"
 
 # GPG fix tty
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# ASDF for Python install
+# ASDF for python install
 . $HOME/.asdf/asdf.sh
 
-# Auto-Suggestions for ZSH
+# ZSH auto_suggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ZSH syntax_highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
