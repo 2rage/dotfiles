@@ -6,6 +6,20 @@
 git clone git@github.com:2rage/dotfiles.git && cd dotfiles && source bootstrap.sh
 ```
 
+## ToDo
+
+- [ ] Create script for a first system init. The following apps and dependencies need to be installed:
+  - [ ] **zsh**
+  - [ ] **brew**
+  - [ ] **starship**
+  - [ ] **rsync**
+  - [ ] **git**
+  - [ ] **net-tools**
+  - [ ] **tree**
+  - [ ] **htop**
+  - [ ] **neofetch**
+  
+
 ### 1. Установка ZSH в Linux
 
 1. Чтобы установить zsh в Debian 11, запустите:
@@ -53,10 +67,3 @@ source ~/.zshrc
 ### 3. Установка последней версии starship
 
 1. ```brew install starship ```
-
-
-
-## ToDo
-
-- [ ] Добавить скрипт настройки Git
-test gnupg
