@@ -26,3 +26,6 @@ HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
 setopt HIST_EXPIRE_DUPS_FIRST
+
+# ls alternative setup
+eval "$(g --init zsh)"
