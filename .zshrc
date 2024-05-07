@@ -10,3 +10,9 @@ eval "$(starship init zsh)"
 # GPG fix tty
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# ASDF for Python install
+. $HOME/.asdf/asdf.sh
+
+# Auto-Suggestions for ZSH
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
