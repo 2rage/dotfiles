@@ -1,5 +1,5 @@
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
-
+[[ -f ~/.zsh/keybindings.zsh ]] && source ~/.zsh/keybindings.zsh
 
 # init homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
