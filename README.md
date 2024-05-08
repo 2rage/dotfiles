@@ -12,6 +12,8 @@ git clone git@github.com:2rage/dotfiles.git && cd dotfiles && source bootstrap.s
   - [ ] **zsh**
   - [ ] **brew**
   - [ ] **starship**
+  - [ ] **python3**
+  - [ ] **poetry**
   - [ ] **rsync**
   - [ ] **git**
   - [ ] **net-tools**
