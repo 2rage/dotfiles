@@ -42,7 +42,7 @@
     {
         "defaults": 
         {
-            "colorScheme": "Campbell",
+            "colorScheme": "Dracula+",
             "font": 
             {
                 "face": "Hack Nerd Font Mono",
@@ -78,6 +78,10 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
+                "font": 
+                {
+                    "face": "JetBrainsMono Nerd Font Mono"
+                },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
