@@ -13,6 +13,6 @@
     "sqlite3-editor.telemetry": "allow",
     "remote.autoForwardPortsSource": "hybrid",
     "json.schemas": [],
-    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontFamily": "JetBrainsMono Nerd Font"
 }
