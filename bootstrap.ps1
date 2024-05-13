@@ -8,24 +8,41 @@ Set-Location $sourceDirectory
 git pull origin windows
 
 function Check-PowershellProfile {
-    # Replace single backslashes with double to avoid errors in regular expressions
-    $profileCheck = [regex]::Escape('$powershellProfilePath = "$HOME\.pwsh\powershell_profile.ps1"')
-
-    # Check if $PROFILE already contains the needed string
-    if ((Get-Content $PROFILE | Out-String) -match $profileCheck) {
-        Write-Host "`$powershellProfilePath variable already exists in $PROFILE"
-    } else {
-        # If not, add the entire block of code
-        Add-Content -Path $PROFILE -Value @"
+    try {
+        # Replace single backslashes with double to avoid errors in regular expressions
+        $profileCheck = [regex]::Escape('$powershellProfilePath = "$HOME\.pwsh\powershell_profile.ps1"')
+        $profilePath = Join-Path -Path $env:USERPROFILE -ChildPath 'Documents\PowerShell\Microsoft.PowerShell_profile.ps1'
+        $profileContent = @"
 # Define the path to .pwsh/powershell_profile.ps1
 `$powershellProfilePath = "`$HOME\.pwsh\powershell_profile.ps1`"
 
 # Call .pwsh/powershell_profile.ps1
 . `$powershellProfilePath
 "@
-        Write-Host "Added powershell_profile.ps1 path to $PROFILE"
+
+        # Check if the file exists
+        if (-not (Test-Path $profilePath)) {
+            Write-Host "The PowerShell profile file does not exist at $profilePath. Creating the file..."
+            New-Item -Path $profilePath -ItemType File | Out-Null
+            # If the file was just created, add the default content
+            Add-Content -Path $profilePath -Value $profileContent
+            Write-Host "PowerShell profile file created at $profilePath"
+        }
+
+        # Check if $PROFILE already contains the needed string
+        elseif ((Get-Content $profilePath | Out-String) -notmatch $profileCheck) {
+            # If not, add the entire block of code
+            Add-Content -Path $profilePath -Value $profileContent
+            Write-Host "Added powershell_profile.ps1 path to $profilePath"
+        } else {
+            Write-Host "New `$PROFILE already exists in $profilePath"
+        }
+    } catch {
+        Write-Host "An error occurred: $_"
     }
 }
+
+
 
 Check-PowershellProfile
 
