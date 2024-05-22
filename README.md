@@ -26,6 +26,7 @@ cd ~ && git clone git@github.com:2rage/dotfiles && cd dotfiles && git checkout w
   - [ ] **htop**
   - [ ] **neofetch**
   
+- [ ] Completely update installation for Mac OS
 
 ### 1. Установка ZSH в Linux
 
