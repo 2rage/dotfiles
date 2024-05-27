@@ -1,14 +1,20 @@
 # Dotfiles
 
-## Linux/Darwin installation
+## MacOS installation
 
 ```bash
 cd ~ && git clone git@github.com:2rage/dotfiles.git && cd dotfiles && source bootstrap.sh
 ```
+
+## Linux installation
+
+```bash
+cd ~ && git clone git@github.com:2rage/dotfiles.git && cd dotfiles && git checkout linux && source bootstrap.sh
+```
 ## Windows installation
 
 ```bash
-cd ~ && git clone git@github.com:2rage/dotfiles && cd dotfiles && git checkout windows && .\bootstrap.ps1
+cd ~ && git clone git@github.com:2rage/dotfiles.git && cd dotfiles && git checkout windows && .\bootstrap.ps1
 ```
 
 ## ToDo
