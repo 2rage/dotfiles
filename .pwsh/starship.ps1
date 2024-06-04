@@ -11,7 +11,7 @@ if (Test-Path $LFILE) {
     $_device = (system_profiler SPHardwareDataType | Select-String -Pattern 'Model Name').ToString().Split(':')[1].Trim()
 
     switch -Regex ($_device) {
-        ".*MacBook.*" { $DEVICE = ""; break }
+        ".*MacBook.*" { $DEVICE = "󰌢"; break }
         ".*mini.*" { $DEVICE = "󰇄"; break }
         default { $DEVICE = ""; break }
     }
@@ -23,7 +23,7 @@ if (Test-Path $LFILE) {
 # Set an icon based on the distribution
 # Make sure your font is compatible with https://github.com/lukas-w/font-logos
 switch ($_distro) {
-    "kali"          { $ICON = "ﴣ"; break }
+    "kali"          { $ICON = "󰠥"; break }
     "arch"          { $ICON = ""; break }
     "debian"        { $ICON = ""; break }
     "raspbian"      { $ICON = ""; break }
@@ -45,7 +45,7 @@ switch ($_distro) {
     "devuan"        { $ICON = ""; break }
     "manjaro"       { $ICON = ""; break }
     "rhel"          { $ICON = ""; break }
-    "macos"         { $ICON = ""; break }
+    "macos"         { $ICON = "󰀵"; break }
     "windows"       { $ICON = ""; break }
     default         { $ICON = ""; break }
 }
