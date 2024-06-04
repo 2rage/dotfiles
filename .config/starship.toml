@@ -1,99 +1,88 @@
 # ~/.config/starship.toml
 
-add_newline = false
-command_timeout = 1000
-format = """$os$username$hostname$kubernetes$directory$git_branch$git_status"""
+# Inserts a blank line between shell prompts
+add_newline = true
 
-# Drop ugly default prompt characters
+# Change the default prompt format
+format = """\
+[╭──](bold cyan)$env_var\
+$all[╰─](bold cyan) $character"""
+
+# Change the default prompt characters
 [character]
-success_symbol = ''
-error_symbol = ''
+success_symbol = "[](bold cyan)"
+error_symbol = "[](bold red)"
 
-# ---
-
-[os]
-format = '[$symbol](bold white) '
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = ' [$env_value](bold white) '  # removed space between distro and rest for pwsh
+variable = "STARSHIP_DISTRO"
 disabled = false
-
-[os.symbols]
-Windows = ' '
-Arch = '󰣇'
-Ubuntu = ''
-Macos = '󰀵'
-
-# ---y
 
 # Shows the username
 [username]
-style_user = 'white bold'
-style_root = 'black bold'
-format = '[$user]($style) '
-disabled = false
-show_always = true
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = false  # disable in powershell
+show_always = false
 
-# Shows the hostname
-[hostname]
-ssh_only = false
-format = 'on [$hostname](bold yellow) '
-disabled = false
-
-# Shows current directory
 [directory]
-truncation_length = 1
-truncation_symbol = '…/'
-home_symbol = '󰋜 ~'
-read_only_style = '197'
-read_only = '  '
-format = 'at [$path]($style)[$read_only]($read_only_style) '
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "󰋞 ~"
+read_only_style = "197"
+read_only = "  "
+format = "at [$path]($style)[$read_only]($read_only_style) "
 
-# Shows current git branch
 [git_branch]
-symbol = ' '
-format = 'via [$symbol$branch]($style)'
-# truncation_length = 4
-truncation_symbol = '…/'
-style = 'bold green'
+symbol = "󰊢 "
+format = "on [$symbol$branch]($style) "
+truncation_length = 8
+truncation_symbol = "…/"
+style = "bold green"
 
-# Shows current git status
 [git_status]
-format = '([ \( $all_status$ahead_behind\)]($style) )'
-style = 'bold green'
-conflicted = '[ confliced=${count}](red) '
-up_to_date = '[󰘽 up-to-date](green) '
-untracked = '[󰋗 untracked=${count}](red) '
-ahead = ' ahead=${count}'
-diverged = ' ahead=${ahead_count}  behind=${behind_count}'
-behind = ' behind=${count}'
-stashed = '[ stashed=${count}](green) '
-modified = '[󰛿 modified=${count}](yellow) '
-staged = '[󰐗 staged=${count}](green) '
-renamed = '[󱍸 renamed=${count}](yellow) '
-deleted = '[󰍶 deleted=${count}](red) '
+format = '[\($all_status$ahead_behind\)]($style) '
+style = "bold green"
+conflicted = "🏳"
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = "󰏗 "
+modified = " "
+staged = '[++\($count\)](green)'
+renamed = "󰖷 "
+deleted = " "
 
-# Shows kubernetes context and namespace
-[kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold purple) '
-disabled = false
-
-# ---
+[terraform]
+format = "via [ terraform $version]($style) 󰑃 [$workspace]($style) "
 
 [vagrant]
-disabled = true
+format = "via [ vagrant $version]($style) "
 
 [docker_context]
-disabled = true
+format = "via [ $context](bold blue) "
 
 [helm]
-disabled = true
+format = "via [ $version](bold purple) "
 
 [python]
-disabled = true
+symbol = " "
+python_binary = "python3"
 
 [nodejs]
+format = "via [󰎙 $version](bold green) "
 disabled = true
 
 [ruby]
-disabled = true
+format = "via [ $version]($style) "
 
-[terraform]
-disabled = true
+[kubernetes]
+format = 'on [ $context\($namespace\)](bold purple) '
+disabled = false
+[kubernetes.context_aliases]
+"clcreative-k8s-staging" = "cl-k8s-staging"
+"clcreative-k8s-production" = "cl-k8s-prod"
