@@ -12,7 +12,7 @@ elif [[ -f $MFILE ]]; then
   _device=$(system_profiler SPHardwareDataType | awk '/Model Name/ {print $3,$4,$5,$6,$7}')
 
   case $_device in
-    *MacBook*)     DEVICE="";;
+    *MacBook*)     DEVICE="󰌢";;
     *mini*)        DEVICE="󰇄";;
     *)             DEVICE="";;
   esac
@@ -21,7 +21,7 @@ fi
 # set an icon based on the distro
 # make sure your font is compatible with https://github.com/lukas-w/font-logos
 case $_distro in
-    *kali*)                  ICON="ﴣ";;
+    *kali*)                  ICON="󰠥";;
     *arch*)                  ICON="";;
     *debian*)                ICON="";;
     *raspbian*)              ICON="";;
@@ -42,7 +42,7 @@ case $_distro in
     *devuan*)                ICON="";;
     *manjaro*)               ICON="";;
     *rhel*)                  ICON="";;
-    *macos*)                 ICON="";;
+    *macos*)                 ICON="󰀵";;
     *)                       ICON="";;
 esac
 
