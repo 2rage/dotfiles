@@ -25,7 +25,7 @@ style_user = "white bold"
 style_root = "black bold"
 format = "[$user]($style) "
 disabled = false  # disable in powershell
-show_always = false
+show_always = true
 
 [directory]
 truncation_length = 3
@@ -56,6 +56,9 @@ modified = " "
 staged = '[++\($count\)](green)'
 renamed = "󰖷 "
 deleted = " "
+
+[swift]
+format = 'via [  $version](red bold)'
 
 [terraform]
 format = "via [ terraform $version]($style) 󰑃 [$workspace]($style) "
