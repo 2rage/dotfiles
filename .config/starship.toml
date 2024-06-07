@@ -10,8 +10,8 @@ $all[╰─](bold cyan) $character"""
 
 # Change the default prompt characters
 [character]
-success_symbol = "[󰍟](bold cyan)"
-error_symbol = "[󰍟](bold red)"
+success_symbol = "[](bold cyan)"
+error_symbol = "[](bold red)"
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
@@ -24,8 +24,8 @@ disabled = false
 style_user = "white bold"
 style_root = "black bold"
 format = "[$user]($style) "
-disabled = true  # disable in powershell
-show_always = false
+disabled = false  # disable in powershell
+show_always = true
 
 [directory]
 truncation_length = 3
@@ -57,6 +57,9 @@ staged = '[++\($count\)](green)'
 renamed = "󰖷 "
 deleted = " "
 
+[swift]
+format = 'via [  $version](red bold)'
+
 [terraform]
 format = "via [ terraform $version]($style) 󰑃 [$workspace]($style) "
 
@@ -70,7 +73,7 @@ format = "via [ $context](bold blue) "
 format = "via [ $version](bold purple) "
 
 [python]
-symbol = "󰌠 "
+symbol = " "
 python_binary = "python3"
 
 [nodejs]
