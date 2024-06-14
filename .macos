@@ -1,18 +1,32 @@
+#!/usr/bin/env bash
+
+# ~/.macos — https://2rage.com/macos
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 ###############################################################################
 # Dock                                                                        #
 ###############################################################################
 
 # Dock: do not display recent apps in the Dock
-defaults write com.apple.dock "show-recents" -bool "false" && killall Dock
+defaults write com.apple.dock "show-recents" -bool "false"
 
 # Dock: change autohide delay to minimum
-defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
+defaults write com.apple.dock "autohide-delay" -float "0"
 
 # Dock: alway show Dock
-defaults write com.apple.dock "autohide" -bool "true" && killall Dock
+defaults write com.apple.dock "autohide" -bool "true"
 
 # Dock: icon size
-defaults write com.apple.dock "tilesize" -int "57" && killall Dock
+defaults write com.apple.dock "tilesize" -int "57"
 
 # Desktop & Stage Manager: click wallpaper to reveal dekstop only in stage manager
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
@@ -23,28 +37,85 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 ###############################################################################
 
 # Show hidden files inside finder
-defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
 
 # Show path bar
-defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
+defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 # Default list view
-defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" && killall Finder
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
 
 # Keep folder on top
-defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
 # Disable file extension warning
-faults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
+faults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
 ###############################################################################
 
 # Focus follows the mouse cursor to any Terminal windows
-defaults write com.apple.Terminal "FocusFollowsMouse" -bool "true" && killall Terminal
+defaults write com.apple.Terminal "FocusFollowsMouse" -bool "true"
+
+# Use a modified version of the Dracula+ theme by default in Terminal.app
+
+osascript <<EOD
+
+tell application "Terminal"
+
+	local allOpenedWindows
+	local initialOpenedWindows
+	local windowID
+	set themeName to "Dracula+"
+
+	(* Store the IDs of all the open terminal windows. *)
+	set initialOpenedWindows to id of every window
+
+	(* Open the custom theme so that it gets added to the list
+	   of available terminal themes (note: this will open two
+	   additional terminal windows). *)
+	do shell script "open '$HOME/cfg/" & themeName & ".terminal'"
+
+	(* Wait a little bit to ensure that the custom theme is added. *)
+	delay 1
+
+	(* Set the custom theme as the default terminal theme. *)
+	set default settings to settings set themeName
+
+	(* Get the IDs of all the currently opened terminal windows. *)
+	set allOpenedWindows to id of every window
+
+	repeat with windowID in allOpenedWindows
+
+		(* Close the additional windows that were opened in order
+		   to add the custom theme to the list of terminal themes. *)
+		if initialOpenedWindows does not contain windowID then
+			close (every window whose id is windowID)
+
+		(* Change the theme for the initial opened terminal windows
+		   to remove the need to close them in order for the custom
+		   theme to be applied. *)
+		else
+			set current settings of tabs of (every window whose id is windowID) to settings set themeName
+		end if
+
+	end repeat
+
+end tell
+
+EOD
 
 
+# Specify the preferences directory for iTerm2
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/dotfiles/iTerm"
+
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+# Installation iTerm2 themes
+open "${HOME}/iTerm/themes/Dracula+.itermcolors"
+open "${HOME}/iTerm/themes/Nord.itermcolors"
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -58,3 +129,14 @@ defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.5"
 
 # Keyboard: repeats the key as long as it is held down. 
 defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
+
+for app in "Dock" \
+	"Finder" \
+	"Messages" \
+	"Photos" \
+	"Safari" \
+	"Terminal" \
+	"Transmission" ; do
+	killall "${app}" &> /dev/null
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
