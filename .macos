@@ -25,7 +25,7 @@ defaults write com.apple.dock "autohide-delay" -float "0"
 # Dock: alway show Dock
 defaults write com.apple.dock "autohide" -bool "true"
 
-# Dock: icon size
+# Dock: the icon size of Dock items to 57 pixels
 defaults write com.apple.dock "tilesize" -int "57"
 
 # Desktop & Stage Manager: click wallpaper to reveal dekstop only in stage manager
@@ -36,20 +36,23 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 # Finder                                                                      #
 ###############################################################################
 
-# Show hidden files inside finder
+# Finder: Show all hidden files 
 defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
 
-# Show path bar
+# Finder: Show path bar
 defaults write com.apple.finder "ShowPathbar" -bool "true"
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
 
 # Default list view
 defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
 
-# Keep folder on top
+# Keep folders on top when sorting by name
 defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
 # Disable file extension warning
-faults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
+defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -130,13 +133,14 @@ defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.5"
 # Keyboard: repeats the key as long as it is held down. 
 defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
 
+# Set fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
 for app in "Dock" \
 	"Finder" \
-	"Messages" \
-	"Photos" \
 	"Safari" \
-	"Terminal" \
-	"Transmission" ; do
+	"Terminal" ; do
 	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
