@@ -46,23 +46,22 @@
             "font": 
             {
                 "face": "Hack Nerd Font Mono",
-                "size": 14.0
+                "size": 12.0
             },
             "opacity": 80
         },
         "list": 
         [
             {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font"
+                },
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "Command Prompt"
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Openlogo-debianV2.svg/1550px-Openlogo-debianV2.svg.png",
+                "name": "Debian",
+                "source": "Windows.Terminal.Wsl"
             },
             {
                 "font": 
@@ -88,16 +87,18 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "font": 
-                {
-                    "face": "JetBrainsMono Nerd Font Mono"
-                },
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Openlogo-debianV2.svg/1550px-Openlogo-debianV2.svg.png",
-                "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
+                "name": "Command Prompt"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
             }
+
         ]
     },
     "schemes": 
