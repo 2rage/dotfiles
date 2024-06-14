@@ -1,5 +1,6 @@
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/.zsh/keybindings.zsh ]] && source ~/.zsh/keybindings.zsh
+[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 
 # init starship prompt
 eval "$(starship init zsh)"
