@@ -1,0 +1,60 @@
+###############################################################################
+# Dock                                                                        #
+###############################################################################
+
+# Dock: do not display recent apps in the Dock
+defaults write com.apple.dock "show-recents" -bool "false" && killall Dock
+
+# Dock: change autohide delay to minimum
+defaults write com.apple.dock "autohide-delay" -float "0" && killall Dock
+
+# Dock: alway show Dock
+defaults write com.apple.dock "autohide" -bool "true" && killall Dock
+
+# Dock: icon size
+defaults write com.apple.dock "tilesize" -int "57" && killall Dock
+
+# Desktop & Stage Manager: click wallpaper to reveal dekstop only in stage manager
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Show hidden files inside finder
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+
+# Show path bar
+defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
+
+# Default list view
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" && killall Finder
+
+# Keep folder on top
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
+
+# Disable file extension warning
+faults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
+
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
+
+# Focus follows the mouse cursor to any Terminal windows
+defaults write com.apple.Terminal "FocusFollowsMouse" -bool "true" && killall Terminal
+
+
+
+###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+###############################################################################
+
+# Mouse: disable mouse acceleration
+defaults write NSGlobalDomain com.apple.mouse.linear -bool "true"
+
+# Mouse: set movement speed
+defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.5"
+
+# Keyboard: repeats the key as long as it is held down. 
+defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false"
