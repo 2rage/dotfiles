@@ -50,3 +50,4 @@ brew install --cask visual-studio-code
 brew install --cask whatsapp
 # brew install --cask whisky
 brew install --cask spotify
+brew install --cask alfred
