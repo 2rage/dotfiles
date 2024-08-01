@@ -43,7 +43,6 @@ function Check-PowershellProfile {
 }
 
 
-
 Check-PowershellProfile
 
 
