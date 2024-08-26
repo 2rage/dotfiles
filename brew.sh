@@ -51,3 +51,5 @@ brew install --cask whatsapp
 # brew install --cask whisky
 brew install --cask spotify
 brew install --cask alfred
+brew install --cask firefox
+brew install --cask openvpn-connect
