@@ -27,17 +27,19 @@ brew install neofetch
 brew install pipx
 brew install starship
 brew install tree
-brew install wireguard-tools
+brew install g-ls
+# brew install wireguard-tools
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 
 # Install usefull apps via brew cask
 brew install --cask font-fira-code-nerd-font # nerd font for terminal and text editiors
-# brew install --cask 1password
+brew install --cask 1password
 # brew install --cask alfred
 # brew install --cask bettertouchtool
 brew install --cask discord
-brew install --cask docker
+# brew install --cask docker
+brew install --cask orbstack
 # brew install --cask firefox
 brew install --cask iterm2
 # brew install --cask microsoft-edge
@@ -50,6 +52,4 @@ brew install --cask visual-studio-code
 brew install --cask whatsapp
 # brew install --cask whisky
 brew install --cask spotify
-brew install --cask alfred
 brew install --cask firefox
-brew install --cask openvpn-connect
