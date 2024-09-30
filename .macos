@@ -22,7 +22,7 @@ defaults write com.apple.dock "show-recents" -bool "false"
 # Dock: change autohide delay to minimum
 defaults write com.apple.dock "autohide-delay" -float "0"
 
-# Dock: alway show Dock
+# Dock: always show Dock
 defaults write com.apple.dock "autohide" -bool "true"
 
 # Dock: the icon size of Dock items to 57 pixels
