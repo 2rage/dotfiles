@@ -55,3 +55,4 @@ brew install --cask spotify
 brew install --cask firefox
 brew install --cask iina
 brew install --cask transmission
+brew install --cask postman
