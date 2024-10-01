@@ -54,3 +54,4 @@ brew install --cask whatsapp
 brew install --cask spotify
 brew install --cask firefox
 brew install --cask iina
+brew install --cask transmission
