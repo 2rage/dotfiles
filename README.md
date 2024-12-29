@@ -13,7 +13,7 @@ git clone git@github.com:2rage/dotfiles
 cd dotfiles
 .\bootstrap.ps1
 ```
-test
+
 ## Todo
 
 
