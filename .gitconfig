@@ -1,7 +1,7 @@
 [user]
 	name = 2rage
 	email = the2rage@icloud.com
-	signingkey = /Users/pavli/.ssh/GithubAuthKey.pub
+	signingkey = C:/Users/the2r/.ssh/GithubAuthKey.pub
 [commit]
 	gpgsign = true
 [tag]
