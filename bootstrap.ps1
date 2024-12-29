@@ -48,7 +48,7 @@ Check-PowershellProfile
 
 # Function to sync dotfiles to the home directory
 function Sync-Files {
-    $excludeItems = @(".git/", ".DS_Store", "README.md", "LICENSE-MIT.txt", "bootstrap.ps1")
+    $excludeItems = @(".git/",".gitignore" , ".DS_Store", "README.md", "LICENSE-MIT.txt", "bootstrap.ps1")
     $sourceItems = Get-ChildItem -Path $sourceDirectory -Exclude $excludeItems
     foreach ($item in $sourceItems) {
         $destinationPath = Join-Path -Path $HOME -ChildPath $item.Name
