@@ -1,0 +1,11 @@
+[user]
+	name = 2rage
+	email = the2rage@icloud.com
+	signingkey = /home/the2rage/.ssh/GithubAuthKey.pub
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg]
+	program = /usr/bin/gpg
+	format = ssh

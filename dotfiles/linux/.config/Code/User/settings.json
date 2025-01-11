@@ -1,0 +1,18 @@
+{
+    "editor.fontLigatures": false,
+    "workbench.iconTheme": "vscode-icons",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.ignoreRebaseWarning": true,
+    "git.rebaseWhenSync": true,
+    "git.suggestSmartCommit": false,
+    "remote.SSH.remotePlatform": {
+        "2rageServer": "linux"
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "sqlite3-editor.telemetry": "allow",
+    "remote.autoForwardPortsSource": "hybrid",
+    "json.schemas": [],
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontFamily": "JetBrainsMono Nerd Font"
+}
