@@ -1,57 +1,65 @@
 import platform
-import os
-import subprocess
 from pathlib import Path
+import subprocess
 
-def sync_files(source_dir: Path, home_dir: Path, excludes: list):
-    """Синхронизирует файлы из source_dir в home_dir, исключая файлы из excludes."""
+
+def sync_files(source_dir: Path, target_dir: Path):
+    """Копирует или создает симлинки для файлов из source_dir в target_dir."""
     for item in source_dir.iterdir():
-        if item.name in excludes:
-            continue
-        dest = home_dir / item.name
-        if dest.exists():
-            print(f"Overwriting: {dest}")
-        else:
-            print(f"Copying: {item} -> {dest}")
+        dest = target_dir / item.name
         if item.is_dir():
-            subprocess.run(["rsync", "-avh", "--no-perms", str(item) + "/", str(dest)])
+            dest.mkdir(parents=True, exist_ok=True)
+            sync_files(item, dest)
         else:
-            dest.write_text(item.read_text())
+            print(f"Linking {item} -> {dest}")
+            if dest.exists():
+                dest.unlink()
+            dest.symlink_to(item)
 
 
-def setup_macos(source_dir: Path):
-    print("Setting up for macOS...")
-    home_dir = Path.home()
-    sync_files(source_dir, home_dir, excludes=[".git/", ".DS_Store", "README.md", "LICENSE-MIT.txt", "bootstrap.sh"])
-    subprocess.run(["source", str(home_dir / ".zshrc")])
+def setup_common():
+    """Применяет общие файлы конфигурации."""
+    print("Applying common configurations...")
+    common_dir = Path(__file__).parent.parent / "dotfiles" / "common"
+    sync_files(common_dir, Path.home())
 
 
-def setup_linux(source_dir: Path):
-    print("Setting up for Linux...")
-    home_dir = Path.home()
-    sync_files(source_dir, home_dir, excludes=[".git/", ".DS_Store", "README.md", "LICENSE-MIT.txt", "bootstrap.sh"])
+def setup_macos():
+    """Применяет конфигурации для macOS."""
+    print("Setting up macOS...")
+    macos_dir = Path(__file__).parent.parent / "dotfiles" / "macos"
+    sync_files(macos_dir, Path.home())
+    subprocess.run(["sh", str(macos_dir / "brew.sh")], check=True)
 
 
-def setup_windows(source_dir: Path):
-    print("Setting up for Windows...")
-    home_dir = Path.home()
-    excludes = [".git/", ".gitignore", ".DS_Store", "README.md", "LICENSE-MIT.txt", "bootstrap.ps1"]
-    sync_files(source_dir, home_dir, excludes)
+def setup_linux():
+    """Применяет конфигурации для Linux."""
+    print("Setting up Linux...")
+    linux_dir = Path(__file__).parent.parent / "dotfiles" / "linux"
+    sync_files(linux_dir, Path.home())
+    subprocess.run(["sh", str(linux_dir / "apt-setup.sh")], check=True)
+
+
+def setup_windows():
+    """Применяет конфигурации для Windows."""
+    print("Setting up Windows...")
+    windows_dir = Path(__file__).parent.parent / "dotfiles" / "windows"
+    subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(windows_dir / "bootstrap.ps1")], check=True)
 
 
 def main():
-    source_dir = Path(__file__).resolve().parent.parent
     os_name = platform.system()
 
+    setup_common()
+
     if os_name == "Darwin":
-        setup_macos(source_dir)
+        setup_macos()
     elif os_name == "Linux":
-        setup_linux(source_dir)
+        setup_linux()
     elif os_name == "Windows":
-        setup_windows(source_dir)
+        setup_windows()
     else:
         print(f"Unsupported OS: {os_name}")
-        exit(1)
 
 
 if __name__ == "__main__":
